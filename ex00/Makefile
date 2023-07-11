@@ -6,7 +6,7 @@
 #    By: moulmoud <moulmoud@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/25 16:21:22 by moulmoud          #+#    #+#              #
-#    Updated: 2023/06/25 16:40:54 by moulmoud         ###   ########.fr        #
+#    Updated: 2023/07/10 20:42:51 by moulmoud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ SRCS = megaphone.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror -std=c++98
 
 COMPILER = c++
 
