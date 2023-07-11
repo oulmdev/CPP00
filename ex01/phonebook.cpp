@@ -6,7 +6,7 @@
 /*   By: moulmoud <moulmoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 16:57:58 by moulmoud          #+#    #+#             */
-/*   Updated: 2023/07/11 05:07:41 by moulmoud         ###   ########.fr       */
+/*   Updated: 2023/07/11 19:03:47 by moulmoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ std:: string print(std:: string str)
 	return (str);
 }
 
-void Phonebook:: printContacts()
+void Phonebook:: printContacts(int isFull)
 {
-	for (int i = 0; i < 8 ; i++) {
+	for (int i = 0; i < isFull ; i++) {
 		std::cout << i + 1 << "         " << "|";
 		std::cout << print(contacts[i].getFirstName()) << "|";
 		std::cout << print(contacts[i].getLastName()) << "|";
@@ -50,4 +50,12 @@ void Phonebook:: printContacts()
 int Phonebook::getIndex()
 {
 	return (this->index);
+}
+
+void Phonebook:: printContact(int index) {
+	std::cout << "First Name: " << contacts[index].getFirstName() << std::endl;
+	std::cout << "Last Name: " << contacts[index].getLastName() << std::endl;
+	std::cout << "Nickname: " << contacts[index].getNickname() << std::endl;
+	std::cout << "Phone Number: " << contacts[index].getPhoneNumber() << std::endl;
+	std::cout << "Darkest Secret: " << contacts[index].getDarkestSecret() << std::endl;
 }
