@@ -18,8 +18,10 @@ class PhoneBook{
 		void	addContact(Contact const &contact);
 		void	printContacts();
 		void	printTable();
+		bool	isEmpty(std:: string toCheck);
 		std::	string resizeString(std:: string toResize);
 		bool	printContact();
+		bool	isNumber(std:: string &toCheck);
 
 		~PhoneBook();
 

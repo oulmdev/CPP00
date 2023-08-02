@@ -28,7 +28,6 @@ class Contact{
 		Contact &operator=(Contact const &other);
 
 		~Contact();
-
 };
 
 

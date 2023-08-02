@@ -32,12 +32,11 @@ bool PhoneBook:: printContact() {
 		std::cout << "Enter The index of the contact you want to see: ";
 		std::getline(std::cin, inputLine);
 		if (std::cin.eof()) {
-			std::cout << "Error: EOF" << std::endl;
 			return (false);
 		}
 		std::istringstream iss(inputLine);
 		if (!(iss >> result) || result < 1 || result > 8) {
-			std::cout << "Error: You have to enter a number between 1 and 8, try again." << std::endl;
+			std::cout << "\033[1;31mError:\033[0m You have to enter a number between 1 and 8, try again." << std::endl;
 		}
 		else {
 			flag = false;
@@ -76,41 +75,59 @@ void PhoneBook:: printContacts() {
 	}
 }
 
+bool PhoneBook:: isEmpty(std:: string toCheck) {
+	if (toCheck.length() == 0)
+		return (false);
+	for (unsigned long i = 0; i < toCheck.length(); i++) {
+		if (!std:: isspace(toCheck[i]))
+			return (true);
+	}
+	return (false);
+}
+
+bool PhoneBook:: isNumber(std:: string &toCheck) {
+	for (unsigned long i = 0; i < toCheck.length(); i++) {
+		if (!std:: isdigit(toCheck[i]))
+		{
+			return (false);
+		}
+	}
+	return(true);
+}
+
 bool PhoneBook:: add() {
-	std:: string firstName;
-	std:: string lastName;
-	std:: string nickName;
-	std:: string phoneNumber;
-	std:: string darkestSecret;
-
+	std:: string input[5];
+	std:: string fields[5] = {"firs name",
+							"last name",
+							"nick name",
+							"phone number",
+							"darkest secret"};
 	Contact newContact;
-
-	std:: cout << "Enter first name: ";
-	std:: getline(std:: cin, firstName);
-	if (std:: cin.eof())
-		return (false);
-	std:: cout << "Enter last name: ";
-	std:: getline(std:: cin, lastName);
-	if (std:: cin.eof())
-		return (false);
-	std:: cout << "Enter nickname: ";
-	std:: getline(std:: cin, nickName);
-	if (std:: cin.eof())
-		return (false);
-	std:: cout << "Enter phone number: ";
-	std:: getline(std:: cin, phoneNumber);
-	if (std:: cin.eof())
-		return (false);
-	std:: cout << "Enter your darkest secret: ";
-	std:: getline(std:: cin, darkestSecret);
-	if (std:: cin.eof())
-		return (false);
-
-	newContact.setDarkestSecret(darkestSecret);
-	newContact.setFirstName(firstName);
-	newContact.setLastName(lastName);
-	newContact.setNickName(nickName);
-	newContact.setPhoneNumber(phoneNumber);
+	for (int i = 0; i < 5; i++)
+	{
+		std:: cout << "Enter " << fields[i] << ": ";
+		std:: getline(std:: cin, input[i]);
+		if (std:: cin.eof())
+			return false;
+		if (!this->isEmpty(input[i]))
+		{
+			std:: cout << "\033[1;31mError:\033[0m " << fields[i] << " cannot be empty." << std:: endl;
+			i--;
+		}
+		if (fields[i] == "phone number")
+		{
+			if (!this->isNumber(input[i]))
+			{
+				std:: cout << "\033[1;31mError:\033[0m " << fields[i] << " Should be valid." << std:: endl;
+				i--;
+			}
+		}
+	}
+	newContact.setFirstName(input[0]);
+	newContact.setLastName(input[1]);
+	newContact.setNickName(input[2]);
+	newContact.setPhoneNumber(input[3]);
+	newContact.setDarkestSecret(input[4]);
 
 	addContact(newContact);
 	return (true);
