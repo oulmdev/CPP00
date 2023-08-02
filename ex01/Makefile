@@ -6,13 +6,13 @@
 #    By: moulmoud <moulmoud@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/25 17:00:19 by moulmoud          #+#    #+#              #
-#    Updated: 2023/07/11 19:00:51 by moulmoud         ###   ########.fr        #
+#    Updated: 2023/08/02 22:18:18 by moulmoud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = phonebook
 
-SRCS = Phonebook.cpp Contact.cpp main.cpp
+SRCS = PhoneBook.cpp Contact.cpp main.cpp
 
 HEADER = PhoneBook.hpp Contact.hpp
 

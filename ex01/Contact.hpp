@@ -1,34 +1,35 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Contact.hpp                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: moulmoud <moulmoud@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/11 18:03:33 by moulmoud          #+#    #+#             */
-/*   Updated: 2023/08/01 20:56:46 by moulmoud         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+# ifndef CONTACT_HPP
+# define CONTACT_HPP
 
 # include <iostream>
-# include <string>
 
-class Contact {
+class Contact{
 	private:
 		std:: string firstName;
 		std:: string lastName;
-		std:: string nickname;
+		std:: string nickName;
 		std:: string phoneNumber;
 		std:: string darkestSecret;
 	public:
-		void setFirstName(std:: string firstName);
-		void setLastName(std:: string lastName);
-		void setNickname(std:: string nickname);
-		void setPhoneNumber(std:: string phoneNumber);
-		void setDarkestSecret(std:: string darkestSecret);
+		Contact();
+
 		std:: string getFirstName();
 		std:: string getLastName();
-		std:: string getNickname();
+		std:: string getNickName();
 		std:: string getPhoneNumber();
 		std:: string getDarkestSecret();
+
+		void setFirstName(std:: string firstName);
+		void setLastName(std:: string lastName);
+		void setNickName(std:: string nickName);
+		void setPhoneNumber(std:: string phoneNumber);
+		void setDarkestSecret(std:: string darkestSecret);
+
+		Contact &operator=(Contact const &other);
+
+		~Contact();
+
 };
+
+
+#endif
