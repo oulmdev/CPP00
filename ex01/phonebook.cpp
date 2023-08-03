@@ -38,6 +38,10 @@ bool PhoneBook:: printContact() {
 		if (!(iss >> result) || result < 1 || result > 8) {
 			std::cout << "\033[1;31mError:\033[0m You have to enter a number between 1 and 8, try again." << std::endl;
 		}
+		else if (result - 1 > this->contactCount && !this->isFull)
+		{
+			std::cout << "\033[1;31mError:\033[0m You have only " << this->contactCount << " contacts, try again." << std::endl;
+		}
 		else {
 			flag = false;
 		}
